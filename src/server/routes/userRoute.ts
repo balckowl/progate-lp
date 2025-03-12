@@ -1,4 +1,4 @@
-import { createRoute, z } from "@hono/zod-openapi";
+import { createRoute} from "@hono/zod-openapi";
 
 export const createStripeUserRoute = createRoute({
     path: "/",
@@ -10,3 +10,4 @@ export const createStripeUserRoute = createRoute({
         }
     }
 })
+
