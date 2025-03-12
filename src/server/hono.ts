@@ -1,9 +1,10 @@
 import { OpenAPIHono } from "@hono/zod-openapi";
-import { getStripeProductsRoute } from "./routes/stripeRoute";
+import { getCheckoutUrlRoute, getStripeProductsRoute } from "./routes/stripeRoute";
 import { createStripeUserHander } from "./controllers/createStripeUser";
 import { swaggerUI } from "@hono/swagger-ui";
 import { getStripeProductsHandler } from "./controllers/getStripeProducts";
 import { createStripeUserRoute } from "./routes/userRoute";
+import { getCheckoutUrlHandler } from "./controllers/getCheckoutUrl";
 
 export const app = new OpenAPIHono().basePath("/api");
 
@@ -17,6 +18,13 @@ const productApp = new OpenAPIHono()
     .openapi(getStripeProductsRoute, getStripeProductsHandler)
 
 app.route("/products", productApp)
+
+
+const checkoutApp = new OpenAPIHono()
+    .openapi(getCheckoutUrlRoute, getCheckoutUrlHandler)
+
+app.route("/checkout", checkoutApp)
+
 
 
 

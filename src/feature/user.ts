@@ -10,6 +10,7 @@ export const getUserById = async (userId: string) => {
             columns: {
                 name: true,
                 email: true,
+                customerId: true
             },
         })
         return user;
