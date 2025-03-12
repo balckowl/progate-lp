@@ -6,7 +6,7 @@ export const user = pgTable("user", {
     email: text("email").notNull().unique(),
     emailVerified: boolean("email_verified").notNull(),
     image: text("image"),
-    isPurchased: boolean("is_purchased").notNull(),
+    isPurchased: boolean("is_purchased").notNull().default(false),
     customerId: text("customer_id"),
     createdAt: timestamp("created_at").notNull(),
     updatedAt: timestamp("updated_at").notNull(),
