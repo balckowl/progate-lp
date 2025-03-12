@@ -11,7 +11,8 @@ export const env = createEnv({
         STRIPE_SECRET_KEY: z.string(),
     },
     client: {
-        NEXT_PUBLIC_STRIPE_PUBLIC_KEY: z.string()
+        NEXT_PUBLIC_STRIPE_PUBLIC_KEY: z.string(),
+        NEXT_PUBLIC_APP_URL: z.string().url()
     },
     runtimeEnv: {
         NEXT_PUBLIC_STRIPE_PUBLIC_KEY: process.env.NEXT_PUBLIC_STRIPE_PUBLIC_KEY,
@@ -21,5 +22,6 @@ export const env = createEnv({
         BETTER_AUTH_SECRET: process.env.BETTER_AUTH_SECRET,
         GOOGLE_CLIENT_ID: process.env.GOOGLE_CLIENT_ID,
         GOOGLE_CLIENT_SECRET: process.env.GOOGLE_CLIENT_SECRET,
+        NEXT_PUBLIC_APP_URL: process.env.NEXT_PUBLIC_APP_URL
     },
 });
