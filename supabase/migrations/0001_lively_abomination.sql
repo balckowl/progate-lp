@@ -1,0 +1,1 @@
+ALTER TABLE "user" ALTER COLUMN "is_purchased" SET DEFAULT false;
