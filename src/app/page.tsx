@@ -2,7 +2,6 @@ import { auth } from "@/auth";
 import SignInButton from "@/components/signInButton";
 import SignOutButton from "@/components/signOutButton";
 import { headers } from "next/headers";
-import { Suspense } from "react";
 
 export default async function Home() {
 

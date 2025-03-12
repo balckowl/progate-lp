@@ -9,24 +9,24 @@ import { env } from "@/env"
 
 export const getCheckoutUrlHandler: RouteHandler<typeof getCheckoutUrlRoute> = async (c) => {
 
-        const {priceId} = c.req.valid("param")
-        const session = await auth.api.getSession({
-            headers: await headers()
-        })
-        if (!session) {
-            throw Error("認証してください")
-        }
+    const { priceId } = c.req.valid("param")
+    const session = await auth.api.getSession({
+        headers: await headers()
+    })
+    if (!session) {
+        throw Error("認証してください")
+    }
 
-        const userId = session.user.id;
-        const user = await getUserById(userId)
-        if(!user){
-            throw Error("ユーザーが存在しません")
-        }
+    const userId = session.user.id;
+    const user = await getUserById(userId)
+    if (!user) {
+        throw Error("ユーザーが存在しません")
+    }
 
-        const customerId = user.customerId
-        if(!customerId){
-            throw Error("カスタマーが存在しません")
-        }
+    const customerId = user.customerId
+    if (!customerId) {
+        throw Error("カスタマーが存在しません")
+    }
 
     const products = await stripe.checkout.sessions.create({
         customer: customerId,
@@ -37,11 +37,15 @@ export const getCheckoutUrlHandler: RouteHandler<typeof getCheckoutUrlRoute> = a
         line_items: [{
             price: priceId,
             quantity: 1
-        }]
+        }],
+        metadata: { userId },
+        payment_intent_data: {
+            metadata:{ userId }
+        }
     })
 
-    if(!products.url){
+    if (!products.url) {
         throw Error('Checkout URLがありません')
     }
-    return c.json({url: products.url}, 200)
+    return c.json({ url: products.url }, 200)
 }

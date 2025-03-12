@@ -9,6 +9,7 @@ export const env = createEnv({
         GOOGLE_CLIENT_ID: z.string(),
         GOOGLE_CLIENT_SECRET: z.string(),
         STRIPE_SECRET_KEY: z.string(),
+        STRIPE_WEBHOOK_SECRET: z.string()
     },
     client: {
         NEXT_PUBLIC_STRIPE_PUBLIC_KEY: z.string(),
@@ -22,6 +23,7 @@ export const env = createEnv({
         BETTER_AUTH_SECRET: process.env.BETTER_AUTH_SECRET,
         GOOGLE_CLIENT_ID: process.env.GOOGLE_CLIENT_ID,
         GOOGLE_CLIENT_SECRET: process.env.GOOGLE_CLIENT_SECRET,
-        NEXT_PUBLIC_APP_URL: process.env.NEXT_PUBLIC_APP_URL
+        NEXT_PUBLIC_APP_URL: process.env.NEXT_PUBLIC_APP_URL,
+        STRIPE_WEBHOOK_SECRET: process.env.STRIPE_WEBHOOK_SECRET
     },
 });
