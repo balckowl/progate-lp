@@ -8,9 +8,14 @@ export const env = createEnv({
         BETTER_AUTH_SECRET: z.string(),
         GOOGLE_CLIENT_ID: z.string(),
         GOOGLE_CLIENT_SECRET: z.string(),
+        STRIPE_SECRET_KEY: z.string(),
     },
-    client: {},
+    client: {
+        NEXT_PUBLIC_STRIPE_PUBLIC_KEY: z.string()
+    },
     runtimeEnv: {
+        NEXT_PUBLIC_STRIPE_PUBLIC_KEY: process.env.NEXT_PUBLIC_STRIPE_PUBLIC_KEY,
+        STRIPE_SECRET_KEY: process.env.STRIPE_SECRET_KEY,
         DATABASE_URL: process.env.DATABASE_URL,
         BASE_URL: process.env.BASE_URL,
         BETTER_AUTH_SECRET: process.env.BETTER_AUTH_SECRET,
