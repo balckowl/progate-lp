@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@hono/swagger-ui": "^0.5.1",
     "@hono/zod-openapi": "^0.19.2",
     "@t3-oss/env-nextjs": "^0.12.0",
     "better-auth": "^1.2.3",
