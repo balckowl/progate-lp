@@ -2,6 +2,7 @@ import { betterAuth } from "better-auth";
 import { db } from "./db";
 import { drizzleAdapter } from "better-auth/adapters/drizzle";
 import { env } from "./env";
+import { createAuthMiddleware } from "better-auth/api";
 
 export const auth = betterAuth({
     database: drizzleAdapter(db, {
@@ -13,4 +14,9 @@ export const auth = betterAuth({
             clientSecret: env.GOOGLE_CLIENT_SECRET,
         },
     },
+    hooks: {
+        after: createAuthMiddleware(async() => {
+            console.log("yes")
+        })
+    }
 });

@@ -1,12 +1,15 @@
 import { createAuthClient } from "better-auth/client"
-const authClient =  createAuthClient()
- 
+import { hono } from "./hono"
+const authClient = createAuthClient()
+
 export const signIn = async () => {
-    await authClient.signIn.social({
-        provider: "github"
-    })
+  await authClient.signIn.social({
+    provider: "github"
+  })
 }
 
-export const signOut = async () => {
-  await authClient.signOut()
+export const signOut = async (fetchOption: any) => {
+  await authClient.signOut({
+    ...fetchOption
+  })
 }

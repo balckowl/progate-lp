@@ -8,29 +8,26 @@ import { getCheckoutUrlHandler } from "./controllers/getCheckoutUrl";
 
 export const app = new OpenAPIHono().basePath("/api");
 
-const userApp = new OpenAPIHono()
+const usersApp = new OpenAPIHono()
     .openapi(createStripeUserRoute, createStripeUserHander)
 
-app.route("/users", userApp)
-
-
-const productApp = new OpenAPIHono()
+const productsApp = new OpenAPIHono()
     .openapi(getStripeProductsRoute, getStripeProductsHandler)
-
-app.route("/products", productApp)
-
 
 const checkoutApp = new OpenAPIHono()
     .openapi(getCheckoutUrlRoute, getCheckoutUrlHandler)
 
-app.route("/checkout", checkoutApp)
+const mainApp = new OpenAPIHono()
+    .route("/users", usersApp)
+    .route("/products", productsApp)
+    .route("/checkout", checkoutApp)
 
-
-
+const route = app.route("/", mainApp)
 
 app.doc("/specification", {
     openapi: "3.0.0",
     info: { title: "Honote API", version: "1.0.0" },
 }).get("/doc", swaggerUI({ url: "/api/specification" }));
 
+export type AppType = typeof route;
 export default app;

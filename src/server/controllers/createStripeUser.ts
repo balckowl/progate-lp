@@ -8,17 +8,27 @@ import { headers } from "next/headers"
 
 export const createStripeUserHander: RouteHandler<typeof createStripeUserRoute> = async (c) => {
     const session = await auth.api.getSession({
+        query: {
+            disableCookieCache: true,
+        }, 
         headers: await headers()
     })
+
     if (!session) {
         throw Error("認証してください")
     }
+
     const userId = session.user.id;
     const user = await getUserById(userId)
 
     if (!user) {
         throw Error("userが存在しません")
     }
+
+    if (user.customerId) {
+        return c.json(200);
+    }
+
     const customer = await stripe.customers.create({
         name: user.name,
         email: user.email,

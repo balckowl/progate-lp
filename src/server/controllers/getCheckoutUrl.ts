@@ -2,17 +2,22 @@ import { RouteHandler } from "@hono/zod-openapi"
 import { stripe } from "@/lib/stripe"
 import { getCheckoutUrlRoute } from "../routes/stripeRoute"
 import { auth } from "@/auth"
-import { headers } from "next/headers"
 import { getUserById } from "@/feature/user"
 import { env } from "@/env"
+import { headers } from "next/headers"
 
 
 export const getCheckoutUrlHandler: RouteHandler<typeof getCheckoutUrlRoute> = async (c) => {
 
     const { priceId } = c.req.valid("param")
+    
     const session = await auth.api.getSession({
+        query: {
+            disableCookieCache: true,
+        }, 
         headers: await headers()
     })
+
     if (!session) {
         throw Error("認証してください")
     }
@@ -31,7 +36,7 @@ export const getCheckoutUrlHandler: RouteHandler<typeof getCheckoutUrlRoute> = a
     const products = await stripe.checkout.sessions.create({
         customer: customerId,
         success_url: `${env.NEXT_PUBLIC_APP_URL}/success`,
-        cancel_url: `${env.NEXT_PUBLIC_APP_URL}/`,
+        cancel_url: `${env.NEXT_PUBLIC_APP_URL}/download`,
         mode: "payment",
         payment_method_types: ["card"],
         line_items: [{
