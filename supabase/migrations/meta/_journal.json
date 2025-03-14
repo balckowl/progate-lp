@@ -15,6 +15,13 @@
       "when": 1741799857725,
       "tag": "0001_lively_abomination",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1741961721152,
+      "tag": "0002_dear_franklin_richards",
+      "breakpoints": true
     }
   ]
 }

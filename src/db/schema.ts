@@ -7,6 +7,7 @@ export const user = pgTable("user", {
     emailVerified: boolean("email_verified").notNull(),
     image: text("image"),
     isPurchased: boolean("is_purchased").notNull().default(false),
+    planType: text("plan_type").notNull().default("Free"),
     customerId: text("customer_id"),
     createdAt: timestamp("created_at").notNull(),
     updatedAt: timestamp("updated_at").notNull(),
