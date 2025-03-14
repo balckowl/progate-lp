@@ -21,10 +21,12 @@ export const Login: StoryObj<T> = {
                 name: "John Doe",
             },
         },
+        lang: "en"
     },
 };
 export const Logout: StoryObj<T> = {
     args: {
         session: null,
+        lang: "en"
     },
 };

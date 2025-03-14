@@ -2,9 +2,13 @@ import { headers } from "next/headers";
 import Header from "./Header";
 import { auth } from "@/auth";
 
-export default async function HeaderContainer() {
+type Props = {
+    lang: string;
+}
+
+export default async function HeaderContainer({lang}: Props) {
     const session = await auth.api.getSession({
         headers: await headers(),
     });
-    return <Header lang="en" session={session} />;
+    return <Header lang={lang} session={session} />;
 }
