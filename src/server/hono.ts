@@ -3,15 +3,17 @@ import { getCheckoutUrlRoute, getStripeProductsRoute } from "./routes/stripeRout
 import { createStripeUserHander } from "./controllers/createStripeUser";
 import { swaggerUI } from "@hono/swagger-ui";
 import { getStripeProductsHandler } from "./controllers/getStripeProducts";
-import { createStripeUserRoute, getPurchasedUsersRoute } from "./routes/userRoute";
+import { createStripeUserRoute, getPurchasedBoolRoute, getPurchasedUsersRoute } from "./routes/userRoute";
 import { getCheckoutUrlHandler } from "./controllers/getCheckoutUrl";
 import { getPurchasedUsersHandler } from "./controllers/getPurchasedUsers";
+import { getPurchasedBoolHandler } from "./controllers/getPurchaseBool";
 
 export const app = new OpenAPIHono().basePath("/api");
 
 const usersApp = new OpenAPIHono()
     .openapi(createStripeUserRoute, createStripeUserHander)
     .openapi(getPurchasedUsersRoute, getPurchasedUsersHandler)
+    .openapi(getPurchasedBoolRoute, getPurchasedBoolHandler)
 
 const productsApp = new OpenAPIHono()
     .openapi(getStripeProductsRoute, getStripeProductsHandler)

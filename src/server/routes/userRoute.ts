@@ -1,5 +1,5 @@
 import { createRoute, z } from "@hono/zod-openapi";
-import { purchasedUserSchema } from "../models/userSchemas";
+import { purchasedboolSchema, purchasedUserSchema } from "../models/userSchemas";
 
 export const createStripeUserRoute = createRoute({
     path: "/",
@@ -29,3 +29,19 @@ export const getPurchasedUsersRoute = createRoute({
     }
 })
 
+
+export const getPurchasedBoolRoute = createRoute({
+    path: "/is-purchased",
+    method: "get",
+    description: "ユーザーの購入プランを取得",
+    responses: {
+        200: {
+            description: "取得成功",
+            content: {
+                "application/json": {
+                    schema: z.array(purchasedboolSchema)
+                }
+            }
+        }
+    }
+})
