@@ -6,7 +6,7 @@ import { Session } from "@/lib/auth-client";
 import Link from "next/link";
 
 type Props = {
-    session: Session | boolean;
+    session: Session | boolean | null;
 };
 
 export default function Hero({ session }: Props) {
