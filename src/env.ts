@@ -9,7 +9,9 @@ export const env = createEnv({
         GOOGLE_CLIENT_ID: z.string(),
         GOOGLE_CLIENT_SECRET: z.string(),
         STRIPE_SECRET_KEY: z.string(),
-        STRIPE_WEBHOOK_SECRET: z.string()
+        STRIPE_WEBHOOK_SECRET: z.string(),
+        API_DOC_BASIC_AUTH_USER: z.string(),
+        API_DOC_BASIC_AUTH_PASS: z.string()
     },
     client: {
         NEXT_PUBLIC_STRIPE_PUBLIC_KEY: z.string(),
@@ -24,6 +26,8 @@ export const env = createEnv({
         GOOGLE_CLIENT_ID: process.env.GOOGLE_CLIENT_ID,
         GOOGLE_CLIENT_SECRET: process.env.GOOGLE_CLIENT_SECRET,
         NEXT_PUBLIC_APP_URL: process.env.NEXT_PUBLIC_APP_URL,
-        STRIPE_WEBHOOK_SECRET: process.env.STRIPE_WEBHOOK_SECRET
+        STRIPE_WEBHOOK_SECRET: process.env.STRIPE_WEBHOOK_SECRET,
+        API_DOC_BASIC_AUTH_USER: process.env.API_DOC_BASIC_AUTH_USER,
+        API_DOC_BASIC_AUTH_PASS: process.env.API_DOC_BASIC_AUTH_PASS
     },
 });

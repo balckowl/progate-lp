@@ -7,6 +7,8 @@ import { createStripeUserRoute, getPurchasedBoolRoute, getPurchasedUsersRoute } 
 import { getCheckoutUrlHandler } from "./controllers/getCheckoutUrl";
 import { getPurchasedUsersHandler } from "./controllers/getPurchasedUsers";
 import { getPurchasedBoolHandler } from "./controllers/getPurchaseBool";
+import { basicAuth } from "hono/basic-auth";
+import { env } from "@/env";
 
 export const app = new OpenAPIHono().basePath("/api");
 
@@ -31,7 +33,13 @@ const route = app.route("/", mainApp)
 app.doc("/specification", {
     openapi: "3.0.0",
     info: { title: "Honote API", version: "1.0.0" },
-}).get("/doc", swaggerUI({ url: "/api/specification" }));
+  }).use('/doc/*', async (c, next) => {
+    const auth = basicAuth({
+      username: env.API_DOC_BASIC_AUTH_USER, 
+      password: env.API_DOC_BASIC_AUTH_PASS, 
+    });
+    return auth(c, next);
+  }).get("/doc", swaggerUI({ url: "/api/specification" }));
 
 export type AppType = typeof route;
 export default app;
