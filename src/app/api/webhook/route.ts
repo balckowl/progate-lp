@@ -27,9 +27,11 @@ export async function POST(req: Request) {
     try {
         if (event.type === "payment_intent.succeeded") {
             const userId = event.data.object.metadata.userId
+            const planType = event.data.object.metadata.planType
 
             await db.update(users).set({
-                isPurchased: true
+                isPurchased: true,
+                planType
             }).where(eq(users.id, userId))
         }else if(event.type === "payment_intent.payment_failed"){
             console.error('決済失敗！！！！！！')

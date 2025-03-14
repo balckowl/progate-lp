@@ -16,7 +16,6 @@ export const auth = betterAuth({
     },
     hooks: {
         after: createAuthMiddleware(async() => {
-            console.log("yes")
         })
     }
 });

@@ -8,13 +8,11 @@ import { headers } from "next/headers"
 
 
 export const getCheckoutUrlHandler: RouteHandler<typeof getCheckoutUrlRoute> = async (c) => {
-
     const { priceId } = c.req.valid("param")
-    
     const session = await auth.api.getSession({
         query: {
             disableCookieCache: true,
-        }, 
+        },
         headers: await headers()
     })
 
@@ -33,6 +31,9 @@ export const getCheckoutUrlHandler: RouteHandler<typeof getCheckoutUrlRoute> = a
         throw Error("カスタマーが存在しません")
     }
 
+    const price = (await stripe.prices.retrieve(priceId))
+    const planType = price.metadata.rank
+
     const products = await stripe.checkout.sessions.create({
         customer: customerId,
         success_url: `${env.NEXT_PUBLIC_APP_URL}/success`,
@@ -43,9 +44,9 @@ export const getCheckoutUrlHandler: RouteHandler<typeof getCheckoutUrlRoute> = a
             price: priceId,
             quantity: 1
         }],
-        metadata: { userId },
+        metadata: { userId, planType },
         payment_intent_data: {
-            metadata:{ userId }
+            metadata: { userId, planType }
         }
     })
 
