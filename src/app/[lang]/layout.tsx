@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
+import "../[lang]/globals.css";
+import Header from "@/components/organisms/Header/Header";
+import { ThemeProvider } from "@/components/ui/theme-provider";
+import { dir } from 'i18next';
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -19,15 +22,25 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
+  params: { lang },
 }: Readonly<{
   children: React.ReactNode;
+  params: { lang: string };
 }>) {
   return (
-    <html lang="en">
+    <html suppressHydrationWarning lang={lang} dir={dir(lang)}>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <Header lang={lang}/>
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );
