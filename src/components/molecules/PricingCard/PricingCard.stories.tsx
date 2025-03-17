@@ -14,7 +14,8 @@ const {
   price,
   description,
   features,
-  cta
+  cta,
+  url
 } = PricingList[0]
 
 export const Default: StoryObj<T> = {
@@ -27,6 +28,8 @@ export const Default: StoryObj<T> = {
           description={description}
           features={features}
           cta={cta}
+          url={url}
+          isPurchased={true}
         />
       </div>
     )

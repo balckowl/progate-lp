@@ -39,7 +39,7 @@ export const getPurchasedBoolRoute = createRoute({
             description: "取得成功",
             content: {
                 "application/json": {
-                    schema: z.array(purchasedboolSchema)
+                    schema: purchasedboolSchema
                 }
             }
         }
