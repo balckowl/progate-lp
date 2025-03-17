@@ -3,9 +3,17 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { PricingType } from "@/const/PricingList";
 import { Check } from "lucide-react";
 
-type Props = PricingType
+type Props = PricingType & { isPurchased: boolean }
 
-export default function PricingCard({ name, description, features, price, cta }: Props) {
+export default function PricingCard({
+  name,
+  description,
+  features,
+  price,
+  cta,
+  url,
+  isPurchased
+}: Props) {
   return (
     <Card className="flex flex-col">
       <CardHeader>
@@ -24,9 +32,16 @@ export default function PricingCard({ name, description, features, price, cta }:
         </ul>
       </CardContent>
       <CardFooter>
-        <Button className="w-full" variant="outline">
-          {cta}
-        </Button>
+        {!isPurchased && <Button className="w-full" variant="outline">
+          <a href={url} className="w-full">
+            {cta}
+          </a>
+        </Button>}
+        {isPurchased && <Button className="w-full" variant="outline">
+          <a href="/success" className="w-full">
+            {cta}
+          </a>
+        </Button>}
       </CardFooter>
     </Card>
   );

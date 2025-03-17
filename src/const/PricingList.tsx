@@ -1,31 +1,37 @@
+import { env } from "@/env"
+
 export type PricingType = {
   name: string,
   description: string,
   features: string[],
   price: string,
-  cta: string
+  cta: string,
+  url: string
 }
 
-export const PricingList = [
+export let PricingList = [
   {
     name: "Free",
-    price: "$10",
+    price: "$0",
     description: "開発をサポート",
     features: ["アプリケーション完全アクセス", "無料アップデート"],
-    cta: "プロ"
+    cta: "プロ",
+    url: "/success"
   },
   {
     name: "standard",
     price: "$10",
     description: "開発をサポート",
     features: ["アプリケーション完全アクセス", "無料アップデート"],
-    cta: "プロ"
+    cta: "プロ",
+    url: ""
   },
   {
     name: "Pro",
     price: "$10",
     description: "開発をサポート",
     features: ["アプリケーション完全アクセス", "無料アップデート"],
-    cta: "プロ"
+    cta: "プロ",
+    url: ""
   }
 ]
