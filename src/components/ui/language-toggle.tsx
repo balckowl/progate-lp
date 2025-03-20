@@ -2,7 +2,7 @@
 import { Globe } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
-import { useRouter } from "next/navigation"
+import { usePathname, useRouter } from "next/navigation"
 
 type Props = {
   lang: string;
@@ -11,6 +11,23 @@ type Props = {
 export function LanguageToggle({ lang }: Props) {
 
   const router = useRouter()
+  const pathname = usePathname()
+
+  const switchLanguage = (newLang: string) => {
+    let newPath = pathname
+
+    if (newLang === "en") {
+      if (!pathname.startsWith("/en")) {
+        newPath = `/en${pathname.replace(/^\/ja/, "")}`
+      }
+    } else {
+      newPath = pathname.replace(/^\/en/, "")
+
+      newPath = newPath.replace(/^\/ja/, "") || "/"
+    }
+
+    router.push(newPath)
+  }
 
   return (
     <DropdownMenu>
@@ -21,8 +38,8 @@ export function LanguageToggle({ lang }: Props) {
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
-        <DropdownMenuItem onClick={() => router.push("/en")}>English {lang === "en" && "✓"}</DropdownMenuItem>
-        <DropdownMenuItem onClick={() => router.push("/ja")}>日本語 {lang === "ja" && "✓"}</DropdownMenuItem>
+        <DropdownMenuItem onClick={() => switchLanguage("en")}>English {lang === "en" && "✓"}</DropdownMenuItem>
+        <DropdownMenuItem onClick={() => switchLanguage("ja")}>日本語 {lang === "ja" && "✓"}</DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
   )

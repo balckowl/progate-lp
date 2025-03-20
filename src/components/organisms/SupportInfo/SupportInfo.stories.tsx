@@ -8,4 +8,14 @@ export default {
     component: SupportInfo,
 } satisfies Meta<T>;
 
-export const Default: StoryObj<T> = {};
+export const Default: StoryObj<T> = {
+    args: {
+        lang: "ja"
+    }
+};
+
+export const EN: StoryObj<T> = {
+    args: {
+        lang: "en"
+    }
+};

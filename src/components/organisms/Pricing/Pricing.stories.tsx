@@ -11,7 +11,17 @@ export default {
 
 export const Default: StoryObj<T> = {
   args:{
-    list: PricingList
+    list: PricingList,
+    lang: "ja"
   }
 };
+
+export const EN: StoryObj<T> = {
+  args:{
+    list: PricingList,
+    lang: "en"
+  }
+};
+
+
 

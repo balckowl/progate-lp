@@ -1,37 +1,31 @@
-import { env } from "@/env"
-
 export type PricingType = {
   name: string,
-  description: string,
   features: string[],
   price: string,
   cta: string,
-  url: string
+  url: string;
 }
 
 export let PricingList = [
   {
     name: "Free",
-    price: "$0",
-    description: "開発をサポート",
-    features: ["アプリケーション完全アクセス", "無料アップデート"],
-    cta: "プロ",
+    price: "￥0",
+    features: ["price_free_d_1", "price_free_d_2"],
+    cta: "price_download_bn",
     url: "/success"
   },
   {
-    name: "standard",
-    price: "$10",
-    description: "開発をサポート",
-    features: ["アプリケーション完全アクセス", "無料アップデート"],
-    cta: "プロ",
-    url: ""
+    name: "Standard",
+    price: "￥3,000",
+    features: ["price_standard_d_1", "price_standard_d_2"],
+    cta: "price_support_bn",
+    url: "/success"
   },
   {
     name: "Pro",
-    price: "$10",
-    description: "開発をサポート",
-    features: ["アプリケーション完全アクセス", "無料アップデート"],
-    cta: "プロ",
-    url: ""
+    price: "￥999,999,999",
+    features: ["price_pro_d_1", "price_pro_d_2"],
+    cta: "price_support_bn",
+    url: "/success"
   }
 ]

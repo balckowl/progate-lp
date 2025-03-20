@@ -18,13 +18,13 @@ export default function Header({ lang, session }: Props) {
         <header className="h-15 border-b">
             <div className="container mx-auto h-full flex items-center justify-between">
                 <h1 className="font-bold text-2xl tracking-tight">
-                    <Link href="/">Phantom Screen</Link>
+                    <Link href={`/${lang}`}>Phantom Screen</Link>
                 </h1>
                 <div className="flex gap-4 items-center">
                     {!session && <SignInButton />}
                     {session && <UserIcon name={session.user.name} />}
                     <LanguageToggle lang={lang} />
-                    <ModeToggle />
+                    <ModeToggle lang={lang}/>
                 </div>
             </div>
         </header>

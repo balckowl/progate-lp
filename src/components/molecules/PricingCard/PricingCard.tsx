@@ -1,32 +1,35 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { PricingType } from "@/const/PricingList";
+import { getTranslation } from "@/i18n/server";
 import { Check } from "lucide-react";
 
-type Props = PricingType & { isPurchased: boolean }
+type Props = PricingType & { isPurchased: boolean, lang: string }
 
-export default function PricingCard({
+export default async function PricingCard({
   name,
-  description,
   features,
   price,
   cta,
   url,
-  isPurchased
+  isPurchased,
+  lang
 }: Props) {
+
+  const { t } = await getTranslation(lang)
+
   return (
     <Card className="flex flex-col">
       <CardHeader>
         <CardTitle>{name}</CardTitle>
         <div className="flex items-baseline text-3xl font-bold">{price}</div>
-        <CardDescription>{description}</CardDescription>
       </CardHeader>
       <CardContent className="grid flex-1 gap-4">
         <ul className="grid gap-2">
           {features.map((feature, index) => (
             <li key={index} className="flex items-center gap-2">
               <Check className="h-4 w-4 text-primary" />
-              <span className="text-sm">{feature}</span>
+              <span className="text-sm">{t(feature)}</span>
             </li>
           ))}
         </ul>
@@ -34,12 +37,12 @@ export default function PricingCard({
       <CardFooter>
         {!isPurchased && <Button className="w-full" variant="outline">
           <a href={url} className="w-full">
-            {cta}
+            {t(cta)}
           </a>
         </Button>}
         {isPurchased && <Button className="w-full" variant="outline">
           <a href="/success" className="w-full">
-            {cta}
+            {t(cta)}
           </a>
         </Button>}
       </CardFooter>

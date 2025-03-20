@@ -7,12 +7,16 @@ export type SupporterType = {
     image: string | null;
 };
 
-export default async function SupporterContainer() {
+type Props = {
+    lang: string
+}
+
+export default async function SupporterContainer({ lang }: Props) {
     const res = await hono.api.users.purchased.$get();
     const list = (await res.json()) as SupporterType[];
     return (
         <div>
-            <Supporter list={list} />
+            <Supporter list={list} lang={lang} />
         </div>
     );
 }

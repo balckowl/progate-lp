@@ -11,5 +11,8 @@ export function getOptions(lng = defaultLanguage) {
     fallbackNS: namespaces[0],
     ns: namespaces,
     supportedLngs: availableLanguages,
+    backend: {
+      loadPath: '/locales/{{lng}}/{{ns}}.json'
+    }
   };
 }

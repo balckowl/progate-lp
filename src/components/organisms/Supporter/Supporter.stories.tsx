@@ -13,5 +13,13 @@ export default {
 export const Default: StoryObj<T> = {
     args: {
         list: SupportersList,
+        lang: "ja"
+    },
+};
+
+export const EN: StoryObj<T> = {
+    args: {
+        list: SupportersList,
+        lang: "en"
     },
 };

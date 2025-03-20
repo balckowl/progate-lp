@@ -10,6 +10,12 @@ export default {
 
 export const Default: StoryObj<T> = {
   args: {
-    title: "主な機能"
+    title: "主な機能",
+  }
+};
+
+export const EN: StoryObj<T> = {
+  args: {
+    title: "Main Features"
   }
 };

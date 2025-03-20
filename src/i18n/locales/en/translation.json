@@ -1,3 +1,46 @@
 {
-  "app_name": "Next.js App Router i18n demo"
+  "hero_sub_title": "Screen recorder with automatic zoom and tracking.",
+  "hero_before_login_bn": "Log in to the site",
+  "hero_after_login_bn": "Free Download",
+  "hero_d": "Compatible with macOS 12.0 or later.",
+  "about_title": "Main Features",
+  "about_t_1": "Automatic focus tracking",
+  "about_d_1": "Automatically tracks remaining movements",
+  "about_t_2": "Automatic zoom in/out",
+  "about_d_2": "Magnify the part you want to focus on",
+  "about_t_3": "Recording",
+  "about_d_3": "File output is still exciting.",
+  "supporter_title": "Supporter",
+  "faq_title": "Frequently asked questions",
+  "faq_q_1": "What is Phantom Screen?",
+  "faq_a_1": "Phantom Screen is an application that tracks the user's recording and automatically records the zoom in/out screen.",
+  "faq_q_2": "What is the pricing?",
+  "faq_a_2": "Phantom Screen is free to use. For those who want to support the development, we offer support plans of 3000 yen and 9999 yen.",
+  "faq_q_3": "What OS does Phantom Screen support?",
+  "faq_a_3": "Only Mac OS is supported.",
+  "faq_q_4": "Can I customize the zoom in/out effect?",
+  "faq_a_4": "No, you can't.",
+  "rec_t_1": "Let's get started right away.",
+  "rec_d_1": "You can use all the features for free.",
+
+  "price_free_d_1": "Full Application Access Free Updates",
+  "price_free_d_2": "Free Updates",
+  "price_standard_d_1": "All Features of Lower Levels",
+  "price_standard_d_2": "Listed on the Supporter Wall",
+  "price_pro_d_1": "All Features of Lower Levels",
+  "price_pro_d_2": "Highlighted Icon Displayed",
+
+  "price_download_bn": "Download",
+  "price_support_bn": "Support",
+
+  "download_support_t": "Join as a Supporter",
+  "download_support_st": "Purchase a Standard or Pro plan to become a supporter.",
+  "download_support_d_1": "Standard Plan: Your profile icon will be displayed on the Supporter Wall.",
+  "download_support_d_2": "Pro Plan: Your profile icon will be highlighted.",
+  "download_support_bn": "View the Supporter Wall",
+
+
+  "light": "light",
+  "dark": "dark",
+  "system": "system"
 }

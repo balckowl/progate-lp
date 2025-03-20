@@ -9,8 +9,10 @@ const getNegotiatedLanguage = (
 };
 
 export const config = {
-  // https://nextjs.org/docs/app/building-your-application/routing/middleware#matcher
-  matcher: ['/((?!api|_next/static|_next/image|.*\\.png$).*)'],
+  // api や _next/static、_next/image、さらに png, jpg, svg, dmg ファイルはミドルウェア処理をスキップ
+  matcher: [
+    '/((?!api|_next/static|_next/image|.*\\.(?:png|jpg|svg|dmg)$).*)',
+  ],
 };
 
 export function middleware(request: NextRequest) {

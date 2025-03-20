@@ -14,7 +14,26 @@ export default {
     tags: ["autodocs"],
 } satisfies Meta<T>;
 
-export const Login: StoryObj<T> = {
+export const After_Login: StoryObj<T> = {
+    args: {
+        session: {
+            user: {
+                name: "John Doe",
+            },
+        },
+        lang: "ja"
+    },
+};
+
+export const Before_Login: StoryObj<T> = {
+    args: {
+        session: null,
+        lang: "ja"
+    },
+};
+
+
+export const EN_After_Login: StoryObj<T> = {
     args: {
         session: {
             user: {
@@ -24,7 +43,8 @@ export const Login: StoryObj<T> = {
         lang: "en"
     },
 };
-export const Logout: StoryObj<T> = {
+
+export const EN_Before_Login: StoryObj<T> = {
     args: {
         session: null,
         lang: "en"
