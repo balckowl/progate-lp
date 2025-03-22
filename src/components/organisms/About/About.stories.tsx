@@ -1,8 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import About from "./About";
 import { AboutList } from '@/const/AboutList';
-import { useTheme } from 'next-themes';
-import { useEffect } from 'react';
 
 type T = typeof About;
 

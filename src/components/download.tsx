@@ -24,7 +24,8 @@ export function DownloadButton() {
       window.URL.revokeObjectURL(url)
       document.body.removeChild(a)
 
-    } catch (error) {
+    } catch (e) {
+      void e
 
     } finally {
       setIsDownloading(false)

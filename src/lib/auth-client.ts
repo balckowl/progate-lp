@@ -1,5 +1,4 @@
 import { createAuthClient } from "better-auth/client";
-import { hono } from "./hono";
 const authClient = createAuthClient();
 
 export type Session = typeof authClient.$Infer.Session;
@@ -10,6 +9,7 @@ export const signIn = async () => {
     });
 };
 
+/* eslint-disable @typescript-eslint/no-explicit-any */
 export const signOut = async (fetchOption: any) => {
     await authClient.signOut({
         ...fetchOption,

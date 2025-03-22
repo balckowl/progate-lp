@@ -28,6 +28,7 @@ const mainApp = new OpenAPIHono()
     .route("/products", productsApp)
     .route("/checkout", checkoutApp)
 
+//eslint-disable-next-line @typescript-eslint/no-unused-vars
 const route = app.route("/", mainApp)
 
 app.doc("/specification", {

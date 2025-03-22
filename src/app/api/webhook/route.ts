@@ -38,8 +38,7 @@ export async function POST(req: Request) {
         }
         return NextResponse.json(200)
     }catch(e){
+        void e
         return NextResponse.json(400)
     }
-
-
 }

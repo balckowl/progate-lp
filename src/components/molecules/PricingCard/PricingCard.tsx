@@ -1,8 +1,9 @@
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { PricingType } from "@/const/PricingList";
 import { getTranslation } from "@/i18n/server";
 import { Check } from "lucide-react";
+import Link from "next/link";
 
 type Props = PricingType & { isPurchased: boolean, lang: string }
 
@@ -41,9 +42,9 @@ export default async function PricingCard({
           </a>
         </Button>}
         {isPurchased && <Button className="w-full" variant="outline">
-          <a href="/success" className="w-full">
+          <Link href="/success" className="w-full">
             {t(cta)}
-          </a>
+          </Link>
         </Button>}
       </CardFooter>
     </Card>
