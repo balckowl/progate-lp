@@ -1,3 +1,45 @@
 {
-  "app_name": "Next.js App Router i18n デモ"
+  "hero_sub_title": "自動ズーム＆トラッキングするスクリーンレコーダー",
+  "hero_before_login_bn": "サイトにログイン",
+  "hero_after_login_bn": "無料ダウンロード",
+  "hero_d": "macOS 12.0以降対応",
+  "about_title": "主な機能",
+  "about_t_1": "自動フォーカストラッキング",
+  "about_d_1": "カーソルの動きを自動で追跡",
+  "about_t_2": "自動ズームイン・ズームアウト",
+  "about_d_2": "注目すべき部分を拡大",
+  "about_t_3": "高画質録画",
+  "about_d_3": "画質を落とさずファイル出力可能",
+  "supporter_title": "サポーター",
+  "faq_title": "よくある質問",
+  "faq_q_1": "Phantom Screenとは何ですか？",
+  "faq_a_1": "Phantom Screenは、ユーザーのカーソルを追跡して、自動的にズームイン・ズームアウトする画面録画アプリケーションです。",
+  "faq_q_2": "価格設定はどうなっていますか？",
+  "faq_a_2": "Phantom Screenは無料で利用できます。開発を支援したい方のために、3000円と9999円の支援プランを提供しています。",
+  "faq_q_3": "Phantom Screenの対応OSは何ですか？",
+  "faq_a_3": "Mac OSのみ対応しています。",
+  "faq_q_4": "ズームイン・ズームアウトする効果をカスタマイズできますか？",
+  "faq_a_4": "いいえ、できません。",
+  "rec_t_1": "今すぐ始めましょう",
+  "rec_d_1": "全ての機能を無料で利用できます。",
+
+  "price_free_d_1": "アプリケーション完全アクセス",
+  "price_free_d_2": "無料アップデート",
+  "price_standard_d_1": "下位レベル全ての機能",
+  "price_standard_d_2": "サポーターウォールへの掲載",
+  "price_pro_d_1": "下位レベル全ての機能",
+  "price_pro_d_2": "強調表示されたアイコンを掲載",
+
+  "price_download_bn": "ダウンロードする",
+  "price_support_bn": "支援する",
+
+  "download_support_t": "サポーターに参加する",
+  "download_support_st": "スタンダードまたはプロプランを購入してサポーターになりましょう",
+  "download_support_d_1": "スタンダードプラン：サポーターウォールにプロフィールアイコンが表示されます",
+  "download_support_d_2": "プロプラン：強調表示されたプロフィールアイコン",
+  "download_support_bn": "サポーターウォールを見る",
+
+  "light": "ライト",
+  "dark": "ダーク",
+  "system": "システム"
 }

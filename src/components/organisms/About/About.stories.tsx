@@ -1,16 +1,27 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import About from "./About";
 import { AboutList } from '@/const/AboutList';
+import { useTheme } from 'next-themes';
+import { useEffect } from 'react';
 
 type T = typeof About;
 
 export default {
-    title: 'organisms/About',
-    component: About,
+  title: 'organisms/About',
+  component: About,
+  tags: ["autodocs"]
 } satisfies Meta<T>;
 
 export const Default: StoryObj<T> = {
   args: {
-    list: AboutList
+    list: AboutList,
+    lang: "ja"
+  }
+};
+
+export const EN: StoryObj<T> = {
+  args: {
+    list: AboutList,
+    lang: "en"
   }
 };

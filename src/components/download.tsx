@@ -34,6 +34,7 @@ export function DownloadButton() {
   return (
     <Button
       size="lg"
+      className="font-semibold"
       onClick={handleDownload}
       disabled={isDownloading}
     >

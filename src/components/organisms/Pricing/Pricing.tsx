@@ -3,11 +3,12 @@ import { PricingType } from "@/const/PricingList";
 import SupportInfo from "../SupportInfo/SupportInfo";
 
 type Props = {
-  list: PricingType[]
-  isPurchased: boolean
+  list: PricingType[];
+  isPurchased: boolean;
+  lang: string;
 }
 
-export default function Pricing({ list, isPurchased }: Props) {
+export default function Pricing({ list, isPurchased, lang }: Props) {
   return (
     <div className="container mx-auto px-4 py-24">
       <div className="grid grid-cols-3 gap-3 mb-3">
@@ -16,15 +17,15 @@ export default function Pricing({ list, isPurchased }: Props) {
             key={item.name}
             name={item.name}
             price={item.price}
-            description={item.description}
             features={item.features}
             cta={item.cta}
             url={item.url}
             isPurchased={isPurchased}
+            lang={lang}
           />
         ))}
       </div>
-      <SupportInfo />
+      <SupportInfo lang={lang}/>
     </div>
   );
 }

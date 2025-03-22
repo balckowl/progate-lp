@@ -12,7 +12,6 @@ export default {
 const {
   name,
   price,
-  description,
   features,
   cta,
   url
@@ -25,14 +24,33 @@ export const Default: StoryObj<T> = {
         <PricingCard
           name={name}
           price={price}
-          description={description}
           features={features}
           cta={cta}
           url={url}
           isPurchased={true}
+          lang="ja"
         />
       </div>
     )
   }
 };
+
+export const EN: StoryObj<T> = {
+  render: () => {
+    return (
+      <div className='w-[400px]'>
+        <PricingCard
+          name={name}
+          price={price}
+          features={features}
+          cta={cta}
+          url={url}
+          isPurchased={true}
+          lang="en"
+        />
+      </div>
+    )
+  }
+};
+
 

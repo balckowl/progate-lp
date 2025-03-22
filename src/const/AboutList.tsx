@@ -9,17 +9,17 @@ export type AboutItemType = {
 export const AboutList = [
   {
     icon: <Scissors />,
-    title: "高精度カット編集",
-    description: "フレーム単位の精密な編集が可能。直感的な操作で素早くカット編集ができます。"
+    title: "about_t_1",
+    description: "about_d_1"
   },
   {
     icon: <Layers />,
-    title: "マルチレイヤー対応",
-    description: "複数のレイヤーを使って、プロフェッショナルな映像効果を実現します。"
+    title: "about_t_2",
+    description: "about_d_2"
   },
   {
     icon: <Wand2 />,
-    title: "AIエフェクト",
-    description: "AIを活用した最新のビデオエフェクトで、作品のクオリティを向上させます。"
+    title: "about_t_3",
+    description: "about_d_3"
   },
 ]

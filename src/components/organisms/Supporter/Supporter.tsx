@@ -7,15 +7,20 @@ import {
     Tooltip,
 } from "@/components/ui/tooltip";
 import { SupporterType } from "./SupporterContainer";
+import { getTranslation } from "@/i18n/server";
 
 type Props = {
     list: SupporterType[];
+    lang: string
 };
 
-export default function Supporter({ list }: Props) {
+export default async function Supporter({ list, lang }: Props) {
+
+    const { t } = await getTranslation(lang)
+
     return (
         <section className="container mx-auto px-4 py-24" id="supporters">
-            <SectionTitle title="サポーター" />
+            <SectionTitle title={t("supporter_title")} />
             <div className="mx-auto max-w-3xl">
                 <div className="flex flex-wrap justify-center gap-4">
                     <TooltipProvider>
@@ -24,11 +29,10 @@ export default function Supporter({ list }: Props) {
                                 <TooltipTrigger asChild>
                                     {item.planType !== "Free" && (
                                         <Avatar
-                                            className={`h-12 w-12 border-2 ${
-                                                item.planType === "Pro"
+                                            className={`h-12 w-12 border-2 ${item.planType === "Pro"
                                                     ? "border-primary"
                                                     : "border-muted"
-                                            }`}
+                                                }`}
                                         >
                                             <AvatarImage
                                                 src={item.image ?? ""}
