@@ -4,9 +4,13 @@ import { hono } from "@/lib/hono";
 import { headers } from "next/headers";
 import Stripe from "stripe";
 
-export default async function Page({ params }: { params: { lang: string } }) {
+type Props = {
+  params: Promise<{ lang: string }>
+}
 
-  const lang = params.lang
+export default async function Page({ params }: Props) {
+
+  const { lang } = await params
 
   const resIsPurchased = await hono.api.users["is-purchased"].$get({},
     {

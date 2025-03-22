@@ -6,7 +6,7 @@ export type PricingType = {
   url: string;
 }
 
-export let PricingList = [
+export const PricingList = [
   {
     name: "Free",
     price: "￥0",

@@ -38,7 +38,7 @@ export default function RootLayout({
                     enableSystem
                     disableTransitionOnChange
                 >
-                    <HeaderContainer lang={lang}/>
+                    <HeaderContainer lang={lang} />
                     {children}
                 </ThemeProvider>
             </body>
